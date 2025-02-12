@@ -1,0 +1,124 @@
+
+//Triger de ingresos de produccion para actualizar mi stock de producto- inicio
+DELIMITER //
+CREATE TRIGGER tr_updStockIngreso AFTER INSERT ON detalle_ingreso_produccion
+ FOR EACH ROW BEGIN
+ UPDATE producto SET stock = stock + NEW.cantidad 
+ WHERE producto.id = NEW.idproducto;
+END
+//
+DELIMITER ;
+//Triger de ingresos de produccion para actualizar mi stock de producto- fin
+
+
+//Triger de Materia Prima para actualizar mi stock de Material segun el pedido - inicio
+DELIMITER //
+CREATE TRIGGER tr_updStockPedido AFTER INSERT ON pedidoprima
+ FOR EACH ROW BEGIN
+ UPDATE prima SET stock = stock - NEW.cantidad 
+ WHERE prima.id = NEW.idprima;
+END
+//
+DELIMITER ;
+//Triger de Materia Prima para actualizar mi stock de Material segun el pedido - fin
+
+
+
+// trigger para restar al anular un ingreso de produccion -inicio
+DELIMITER //
+CREATE TRIGGER tr_updStockIngresoAnular AFTER UPDATE ON detalle_ingreso_produccion FOR EACH ROW 
+BEGIN
+  UPDATE producto a
+    JOIN detalle_ingreso_produccion di
+      ON di.idproducto = a.id
+     AND di.estado ='Anulado'
+     AND di.id =NEW.id
+     set a.stock = a.stock - di.cantidad
+;
+end;
+//
+DELIMITER ;
+
+// trigger para restar al anular un ingreso de produccion -fin
+
+// trigger para sumar al anular un pedido de produccion -inicio
+DELIMITER //
+CREATE TRIGGER tr_updStockPedidoAnular AFTER UPDATE ON pedidoprima FOR EACH ROW 
+BEGIN
+  UPDATE prima a
+    JOIN pedidoprima di
+      ON di.idprima = a.id
+     AND di.estado ='Anulado'
+     AND di.id =NEW.id
+     set a.stock = a.stock + di.cantidad
+;
+end;
+//
+DELIMITER ;
+
+// trigger para sumar al anular  un pedido de produccion -fin
+
+
+
+//Triger de ventas de productos descontar stock -inicio
+DELIMITER //
+CREATE TRIGGER tr_updStockventa AFTER INSERT ON detalle_venta
+ FOR EACH ROW BEGIN
+ UPDATE producto SET stock = stock - NEW.cantidad 
+ WHERE producto.id = NEW.idproducto;
+END
+//
+DELIMITER ;
+/Triger de ventas de productos descontar stock -fin
+
+
+// trigger para sumar al anular un venta -inicio
+DELIMITER //
+CREATE TRIGGER tr_updStockventaAnular AFTER UPDATE ON detalle_venta FOR EACH ROW 
+BEGIN
+  UPDATE producto a
+    JOIN detalle_venta di
+      ON di.idproducto = a.id
+     AND di.estado ='Anulado'
+     AND di.id =NEW.id
+     set a.stock = a.stock + di.cantidad
+;
+end;
+//
+DELIMITER ;
+// trigger para sumar al anular un venta -fin
+
+
+
+
+
+
+
+//Triger de compra de prima sumar stock -inicio
+DELIMITER //
+CREATE TRIGGER tr_updStockcompra AFTER INSERT ON detalle_compra
+ FOR EACH ROW BEGIN
+ UPDATE prima SET stock = stock + NEW.cantidad 
+ WHERE prima.id = NEW.idprima;
+END
+//
+DELIMITER ;
+/Triger Triger de compra de prima sumar stock-fin
+
+
+
+// trigger para descontar al anular una compra-inicio
+DELIMITER //
+CREATE TRIGGER tr_updStockcompraAnular AFTER UPDATE ON detalle_compra FOR EACH ROW 
+BEGIN
+  UPDATE prima a
+    JOIN detalle_compra di
+      ON di.idprima = a.id
+     AND di.estado ='Anulado'
+     AND di.id =NEW.id
+     set a.stock = a.stock - di.cantidad
+;
+end;
+//
+DELIMITER ;
+// trigger para descontar al anular una compra -fin

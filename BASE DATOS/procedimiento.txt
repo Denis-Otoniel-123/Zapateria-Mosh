@@ -1,0 +1,123 @@
+
+// registro de venta inicio
+DELIMITER $$
+CREATE  PROCEDURE `venta`(
+    in idcliente INT(10),
+    in tipo_comprobante varchar(20), 
+    in serie_comprobante varchar(7),
+    in num_comprobante varchar(10), 
+    in fecha_hora varchar(50),
+    in total decimal(11,2),
+    in estado varchar(30)
+)
+BEGIN
+INSERT INTO venta(idcliente,tipo_comprobante,serie_comprobante,num_comprobante,fecha_hora,total,estado)
+values(idcliente,tipo_comprobante,serie_comprobante,num_comprobante,fecha_hora,total,estado);
+COMMIT;
+
+END$$
+DELIMITER ;
+// registro de venta fin
+
+
+// registro de detalleventa inicio
+DELIMITER $$
+CREATE  PROCEDURE `venta_detalle`(
+        in idproducto int(10),
+        in cantidad int(11),
+         in precio decimal(10,2),
+        in descuento decimal(11,2),
+        in subtotal decimal(20,2),
+         in estado varchar(30)
+)
+BEGIN
+
+INSERT INTO detalle_venta(idventa,idproducto,cantidad,precio,descuento,subtotal,estado)
+values((SELECT MAX(id) from venta),idproducto,cantidad,precio,descuento,subtotal,estado);
+SELECT MAX(id) from venta;
+COMMIT;
+END$$
+DELIMITER ;
+
+// registro de detalleventa fin
+
+
+
+// registro de prooveedor inicio
+DELIMITER
+//
+CREATE  PROCEDURE `insertproveedor`(
+ /*persona*/
+        in nombre varchar(100), 
+        in tipo_documento varchar(20),
+        in num_documento varchar(20), 
+        in direccion varchar(70),
+        in telefono varchar(20), 
+        in email varchar(50),
+           
+   /*proveedor*/
+        in contacto varchar(50),
+        in telefono_contacto varchar(50)
+    
+
+)
+BEGIN
+
+INSERT INTO persona(nombre,tipo_documento,num_documento,direccion,telefono,email)values(nombre,tipo_documento,num_documento,direccion,telefono,email);
+
+INSERT INTO proveedor(idpersona,contacto,telefono_contacto)values(last_insert_id(),contacto,telefono_contacto);
+SELECT MAX(id) from persona;
+END//
+DELIMITER
+//
+
+// registro de prooveedor fin
+
+
+
+// registro de compra inicio
+DELIMITER $$
+CREATE  PROCEDURE `compra_insert`(
+    in idproveedor INT(10),
+    in tipo_comprobante varchar(20), 
+    in serie_comprobante varchar(7),
+    in num_comprobante varchar(10), 
+    in fecha_hora varchar(50),
+    in total decimal(11,2),
+    in estado varchar(30)
+)
+BEGIN
+INSERT INTO compra(idproveedor,tipo_comprobante,serie_comprobante,num_comprobante,fecha_hora,total,estado)
+values(idproveedor,tipo_comprobante,serie_comprobante,num_comprobante,fecha_hora,total,estado);
+COMMIT;
+
+END$$
+DELIMITER ;
+
+// registro de compra fin
+
+// registro de detalle_compra inicio
+DELIMITER $$
+CREATE  PROCEDURE `compra_detalle`(
+        in idprima int(10),
+        in cantidad int(11),
+         in precio decimal(10,2),
+        in descuento decimal(11,2),
+        in subtotal decimal(20,2),
+        in estado varchar(30)
+)
+BEGIN
+
+INSERT INTO detalle_compra(idcompra,idprima,cantidad,precio,descuento,subtotal,estado)
+values((SELECT MAX(id) from compra),idprima,cantidad,precio,descuento,subtotal,estado);
+SELECT MAX(id) from venta;
+COMMIT;
+END$$
+DELIMITER ;
+
+// registro de detalle_compra fin
+
+
+
+
+

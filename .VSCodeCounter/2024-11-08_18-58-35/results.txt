@@ -1,0 +1,36 @@
+Date : 2024-11-08 18:58:35
+Directory : c:\Users\intel PC\Desktop\PYMEURBAN\web\css
+Total : 12 files,  9400 codes, 342 comments, 487 blanks, all 10229 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| CSS      |         12 |      9,400 |        342 |        487 |     10,229 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++---------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                            | files      | code       | comment    | blank      | total      |
++---------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                               |         12 |      9,400 |        342 |        487 |     10,229 |
++---------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++---------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                                        | language | code       | comment    | blank      | total      |
++---------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| c:\Users\intel PC\Desktop\PYMEURBAN\web\css\bootstrap-theme.css                 | CSS      |        469 |          6 |          2 |        477 |
+| c:\Users\intel PC\Desktop\PYMEURBAN\web\css\bootstrap-theme.min.css             | CSS      |          1 |          4 |          0 |          5 |
+| c:\Users\intel PC\Desktop\PYMEURBAN\web\css\bootstrap.css                       | CSS      |      6,570 |          8 |          7 |      6,585 |
+| c:\Users\intel PC\Desktop\PYMEURBAN\web\css\bootstrap.min.css                   | CSS      |          1 |          4 |          0 |          5 |
+| c:\Users\intel PC\Desktop\PYMEURBAN\web\css\bootstrapp.min.css                  | CSS      |          1 |          5 |          0 |          6 |
+| c:\Users\intel PC\Desktop\PYMEURBAN\web\css\estilos.css                         | CSS      |         60 |          0 |         13 |         73 |
+| c:\Users\intel PC\Desktop\PYMEURBAN\web\css\jquery.mCustomScrollbar.css         | CSS      |        812 |        113 |        343 |      1,268 |
+| c:\Users\intel PC\Desktop\PYMEURBAN\web\css\main.css                            | CSS      |        820 |         32 |          4 |        856 |
+| c:\Users\intel PC\Desktop\PYMEURBAN\web\css\material-design-iconic-font.min.css | CSS      |          1 |          0 |          0 |          1 |
+| c:\Users\intel PC\Desktop\PYMEURBAN\web\css\material.min.css                    | CSS      |          1 |          8 |          1 |         10 |
+| c:\Users\intel PC\Desktop\PYMEURBAN\web\css\normalize.css                       | CSS      |        177 |        162 |         86 |        425 |
+| c:\Users\intel PC\Desktop\PYMEURBAN\web\css\sweetalert2.css                     | CSS      |        487 |          0 |         31 |        518 |
+| Total                                                                           |          |      9,400 |        342 |        487 |     10,229 |
++---------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
