@@ -43,10 +43,8 @@ Hmtl
 CSS
 CS
 bootstrap
-
 Mysql - phpMyAdmin
 servidores Glassfish
 Apache Netbeans IDE
-Visual Studio Code
-
+Visual Studio Code 
 
