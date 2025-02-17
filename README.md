@@ -34,3 +34,19 @@ varios de los objetivos los cuales eran:
 los cual nos lleva a poder terminar este sistema completo para poder presentarlo formalmente a la fabrica de calzado 
 
 recuerden si hay algo en lo que no puedan o entiendan sean siempre autodidactas y busquen mas soluciones no se estanquen en algo que no puedan avanzar.
+
+## Tecnologias Utilizadas
+
+Java
+javaScrips
+Hmtl
+CSS
+CS
+bootstrap
+
+Mysql - phpMyAdmin
+servidores Glassfish
+Apache Netbeans IDE
+Visual Studio Code
+
+
